@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-    
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
     body {
-      background-image: url('walpbg.png');
+      /*background-image: url('walpbg.png');*/
+      background-color: #121f2f;
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -22,6 +23,9 @@
       height: auto;
       backdrop-filter: blur(5px);
     }
+    label {
+      font-family: "Raleway", sans-serif;
+      font-weight: bold; }
 
     #form-container input[type="text"],
     #form-container input[type="date"],
@@ -29,58 +33,110 @@
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
-      border: 2px solid #f1d0d0;
-      border-radius: 5px;
+      box-shadow: none; /* Hilangkan bayangan */
+      appearance: none;
       font-family: Arial, Helvetica, sans-serif;
+      background-color: #424769;
+      color: #ffffff;
+      border: none;
+      font-family: "Raleway", sans-serif;
+      font-style: normal;
     }
 
     #form-container input[type="submit"] {
-      width: 100%;
-      padding: 15px 20px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      font-family: 'Poppins', sans-serif;
-      border-radius: 5px;
-    }
+    width: 100%;
+    padding: 15px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    background-color: #f9b17a;
+    border: none; /* Hilangkan border jika ada */
+    color: #fff; /* Warna teks */
+    box-shadow: 0 0 15px rgba(249, 177, 122, 0.7); /* Efek glow */
+    transition: box-shadow 0.3s ease; /* Animasi transisi untuk efek glow */
+}
 
-    #form-container input[type="submit"]:hover {
-      background-color: #0fa9cf;
-      color: white;
-    }
+#form-container input[type="submit"]:hover {
+    box-shadow: 0 0 25px rgba(249, 177, 122, 1); /* Glow lebih terang saat hover */
+}
 
     #form-container {
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: #2d3250;
       color: white;
       position: relative;
       max-width: 90%;
       margin: 0 auto;
       margin-bottom: 30px;
-      border: 2px solid #da0808;
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), /* Deep shadow */
+                0 20px 25px rgba(0, 0, 0, 0.4); /* Larger shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
       border-radius: 10px;
       padding: 20px;
       font-family: 'Poppins', sans-serif;
       overflow: hidden;
     }
 
+    .menu {
+      border-radius: 4px;
+    background-color: #eaeaea;
+    margin: 3px 5px 50px 5px;
+    display: flex;
+    gap: 27px;
+    align-items: center;
+    justify-content: center; /* Memusatkan ikon-ikon secara horizontal */
+    padding-top: 10px;
+    padding-bottom: 10px;
+   
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), /* Deep shadow */
+                0 20px 25px rgba(0, 0, 0, 0.4); /* Larger shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    
+  }
+
+  .content1, .content2, .content3, .content4 {
+    background-color: #7d9ef8;
+    border-radius: 8px;
+    padding: 7px;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Efek Hover */
+.content1:hover, .content2:hover, .content3:hover, .content4:hover {
+    background-color: #5070e8; /* Mengubah warna latar belakang */
+    transform: scale(1.1) rotate(5deg); /* Membesarkan elemen dan memutarnya sedikit */
+    box-shadow: rgba(0, 0, 0, 0.5) 10px 10px 20px; /* Menambahkan bayangan lebih besar */
+}
+
+
+
+   
+
     .jadwal {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      background-color: white;
+      background-image: url('https://i.pinimg.com/564x/87/4a/2e/874a2e73439f4f6ef2552f57de82508d.jpg');
+      background-size:cover;
+      
+      background-repeat: no-repeat;
+      
       margin: 20px auto;
       max-width: 90%;
       padding-top: 50px;
       padding-bottom: 10px;
       position: relative;
-      margin-top: 200px;
+      
     }
 
     .jadwal #hari {
     font-family: Arial, Helvetica, sans-serif;
     color: black;
-    border: solid black 2px;
+    border: dotted ;
     font-weight: bold;
     font-size: 20px;
     background-color: #FFFF00;
@@ -112,14 +168,15 @@
     }
 
     #mapel1, #mapel2, #mapel3, #mapel4 {
-      color: white;
-      text-shadow: black 3px 3px 3px;
+      color: rgb(0, 0, 0);
+      text-shadow: rgba(255, 255, 255, 0.548) 3px 3px 3px;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: rgb(255, 0, 0);
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
       margin: 5px 0;
       border-radius: 1.159mm;
       padding: 8px;
-      border: solid #000000 0.6mm;
+      border-style:hidden;
       width: 100%;
     }
 
@@ -152,7 +209,30 @@
     </form>
   </div>
 
-  <br><br>
+  <br>
+  <br>
+  <div class="menu">
+    <div class="content1">
+        <a href="Jadwal.html" class="delayed-link">
+            <img src="https://icons.iconarchive.com/icons/iconsmind/outline/32/Info-Window-icon.png" width="32" height="32">
+        </a>
+    </div>
+    <div class="content2">
+        <a href="https://example.com" class="delayed-link">
+            <img src="https://icons.iconarchive.com/icons/iconsmind/outline/128/Data-Center-icon.png" width="32" height="32">
+        </a>
+    </div>
+    <div class="content3">
+        <a href="jadwalPiket.jpg" class="delayed-link">
+            <img src="https://icons.iconarchive.com/icons/atyourservice/service-categories/16/Cleaning-icon.png" width="32" height="32">
+        </a>
+    </div>
+    <div class="content4">
+        <a href="https://wa.me/6289647807008?text=Halo%20saya%20ingin%20bertanya" class="delayed-link">
+            <img src="https://icons.iconarchive.com/icons/dtafalonso/android-l/32/WhatsApp-icon.png" width="32" height="32">
+        </a>
+    </div>
+</div>
 
   <div class="jadwal">
    <a href="Jadwal.html"><div id="hari"></div></a>
@@ -164,6 +244,18 @@
       <div id="mapel4"></div>
     </div>
   </div>
+
+  <script>
+    document.querySelectorAll('.delayed-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah navigasi langsung
+            const url = this.href;
+            setTimeout(() => {
+                window.location.href = url;
+            }, 2000); // Menunggu 2 detik
+        });
+    });
+</script>
 
   <script>
     function updateJadwal() {
@@ -227,7 +319,7 @@
           if (now >= startTime && now <= endTime) {
             item.element.style.backgroundColor = '#00FF00'; // Mengubah background color menjadi #00FF00
           } else {
-            item.element.style.backgroundColor = 'rgb(255, 0, 0)'; // Mengembalikan ke warna semula
+            item.element.style.backgroundColor = 'rgba(255, 255, 255, 0.100)'; // Mengembalikan ke warna semula
           }
         });
       }
