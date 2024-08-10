@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Piket Sekolah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f3f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: url('https://miro.medium.com/v2/resize:fit:720/format:webp/1*I7vwJXlGs11n6l8l5a_qVA.jpeg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 60px 15px;
+            text-align: center;
+            width: 100%;
+            box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 -200px 4px rgba(0, 0, 0, 0.336);
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        header::before {
+            content: '';
+            position: relative;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 115, 232, 0.75);
+            border-radius: 0;
+        }
+
+        header h1 {
+            position: relative;
+            text-align: center;
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 1;
+        }
+
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 100px; /* Untuk memberi jarak dari header */
+        }
+
+        main h1 {
+            font-size: 20px;
+            color: #1a73e8;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        label {
+            font-weight: 600;
+            color: #1a73e8;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            max-width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            border-color: #1a73e8;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px 0;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #155ab6;
+        }
+
+        #result {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #e0f7fa;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            display: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a73e8;
+            text-align: left;
+        }
+
+        table {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #1a73e8;
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Search </h1>
+    </header>
+
+    <main>
+        <h1>Cari Siswa Piket</h1>
+        <label for="studentName">Masukkan Nama Siswa:</label>
+        <input type="text" id="studentName" placeholder="Nama siswa...">
+        <button onclick="checkDuty()">Cari Hari Piket</button>
+        <div id="result"></div>
+    </main>
+
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Siswa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Adam Rama</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ahmad Khairun</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Ahmad Herdiansyah</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Ahmad Fabian</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Aldo Aditya</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Alyanis Sifana</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Arif Wahyu</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Arya Galih</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Cahaya Apriliani</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Charli Adi</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Choiri Zaki</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Dika Aditya</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Denis Ahmad</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Endi Setiawan</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Fazar Mahesa</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Ferdiansayah Putra</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Frischa Ardian</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>Ibnu Syekhiran</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>Imam Khoiri</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>Jibril Ramadahan</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>Karten Arif</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>Kiki Amalia</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>Meica Selgina</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>Muhammad Algi</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Muhammad Barikly</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>Muhammad Fadli</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Muhammad Syaefa</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>Nabila Putri</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>Nabil Afif
+
+</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>Nisa Nur</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>Nugraha Mulya</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>Randina Annawra</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>Rama Adiyansyah</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>Rio Saputra</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>Sadam Satria</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>Saripudin</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>Shaida Nur</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>Siti Aprilia</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>Teguh Fatur</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>Windy Nurul</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const dutySchedule = {
+            'Senin': ['Windy Nurul', 'Frischa Ardian', 'Jibril Ramadahan', 'Muhammda Fauzan', 'Ahmad Khairun', 'Ibnu Syekhiran', 'Nabil Afif', 'Teguh Fatur', 'Arlin Samairi'],
+            'Selasa': ['Meica Selgina', 'Nisa Nur', 'Muhammad Barikly', 'Fazar Mahesa', 'Charli Adi', 'Adam Rama', 'Arya Galih', 'Denis Ahmad', 'Reypan Haryadi'],
+            'Rabu': ['Siti Aprilia', 'Shaida Nur', 'Muhammad Turmuji', 'Rio Saputra', 'Ahmad Fabian', 'Sadam Satria', 'Saripudin', 'Muhammad Algi', 'Muhammad Fadli'],
+            'Kamis': ['Nabila Putri', 'Alyanis Sifana', 'Arif Wahyu', 'Ferdiansayah Putra', 'Ahmad Herdiansyah', 'Karten Arif', 'Muhammad Syaefa', 'Dika Aditya', 'Aldo Aditya'],
+            'Jumat': ['Randina Annawra', 'Cahaya Apriliani', 'Choiri Zaki', 'Endi Setiawan', 'Imam Khoiri', 'Aji Junaedi', 'Rahmat Nova', 'Nugraha Mulya', 'Rama Adiyansyah']
+        };
+
+        function normalizeString(str) {
+            return str.toLowerCase().replace(/\s+/g, '');
+        }
+
+        function checkDuty() {
+            const studentName = normalizeString(document.getElementById('studentName').value.trim());
+            let resultText = 'Siswa tidak ditemukan dalam daftar piket.';
+            for (const [day, students] of Object.entries(dutySchedule)) {
+                if (students.some(student => normalizeString(student) === studentName)) {
+                    resultText = `${document.getElementById('studentName').value.trim()} piket pada hari ${day}.`;
+                    break;
+                }
+            }
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = resultText;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+
+</body>
+
+</html>
