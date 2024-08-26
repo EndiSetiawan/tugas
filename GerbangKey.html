@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>Tes EnCrypt</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://pbs.twimg.com/media/Fxto7UTXgAEtKVC.jpg:large') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Centered Box Style */
+        .container {
+            margin-left: 20px;
+            margin-right: 20px;
+            background: rgba(255, 255, 255, 0.2); /* Transparent white */
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px); /* Blurring the background */
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff5722;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+        }
+
+        /* Hover Animations */
+        button:hover {
+            transform: scale(1.1); /* Scale up */
+            background-color: #ff784e; /* Lighter shade */
+            box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4); /* Glow effect */
+        }
+
+        button:active {
+            transform: scale(0.9); /* Scale down */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Masukkan Password:</h2>
+        <!-- Tambahkan form element di sini -->
+        <form onsubmit="generateLink(); return false;">
+            <input type="password" id="password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Fungsi untuk mengubah ArrayBuffer ke Hex String
+        function arrayBufferToHex(buffer) {
+            const byteArray = new Uint8Array(buffer);
+            const hexString = byteArray.reduce((output, byte) => output + ('0' + byte.toString(16)).slice(-2), '');
+            return hexString;
+        }
+
+        async function generateHash(input) {
+            // Encode input menjadi UTF-8
+            const encoder = new TextEncoder();
+            const data = encoder.encode(input);
+
+            // Hash menggunakan SHA-256
+            const hash = await crypto.subtle.digest('SHA-256', data);
+
+            // Ubah hasil hash ke dalam bentuk string heksadesimal
+            return arrayBufferToHex(hash);
+        }
+
+        async function generateLink() {
+            const password = document.getElementById('password').value;
+            const hash = await generateHash(password);
+
+            // Tambahkan .html di belakang hash
+            const url = hash + '.html';
+
+            // Alihkan ke halaman baru berdasarkan hash
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

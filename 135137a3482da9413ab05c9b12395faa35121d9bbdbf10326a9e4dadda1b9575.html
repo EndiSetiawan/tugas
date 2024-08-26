@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artikel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Mencegah scrollbar horizontal saat sidebar muncul */
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000; /* Z-index header */
+        }
+
+        
+
+        h3 {
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            font-size: 30px;
+        }
+
+        header img {
+            width: 40px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .toggle-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: 30px;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            backdrop-filter: blur(90px);
+            background-color: #111111f1;
+            padding-top: 60px;
+            transition: left 0.3s;
+            z-index: 1100; /* Z-index sidebar lebih tinggi dari header */
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .container {
+            padding: 80px 20px; /* Memberikan ruang untuk header */
+        }
+
+        .show-sidebar .sidebar {
+            left: 0; /* Sidebar muncul menutupi header */
+        }
+
+        .sejarah {
+            justify-content: center;
+        }
+
+        .sejarah p {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #eyang {
+            height: 350px;
+            width: auto;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            
+        }
+        
+
+        #logoAkhir {
+            background-color: black;
+            position: relative;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        
+        footer {
+    background-color: #1a533d;
+    color: rgb(179, 179, 179);
+    padding: 40px 0 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 20px;
+    min-width: 200px;
+}
+
+.footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #00FF00; /* Change to desired hover color */
+}
+
+.footer-section .socials a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-section .socials a img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-bottom {
+    
+    color: #888;
+    text-align: left;
+    padding: 10px 0;
+    
+    font-size: 14px;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="assets/logo.png" id="logo" alt="Logo">
+        <h3>Dasa Daya</h3>
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    </header>
+
+    <div class="sidebar">
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#program">Program Latihan</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <!-- Isi konten utama website -->
+            <h1>Selamat Datang di Blog DASA DAYA</h1>
+            <p> Salam 3S (Sholat Silat Silaturahmi)</p>
+            <div class="sejarah">
+                <h2><hr>Sejarah Berdirinya DASA DAYA<hr></h2>
+                <p>Sejarah berdirinya dasa daya.</p>
+                <img src="https://aksarajawasyekhronji.wordpress.com/wp-content/uploads/2020/02/22366610_884676021690228_8260406742484053468_n.jpg" id="eyang">
+                <p>
+                   Dasa Daya didirikan oleh EYANG SUTOPO pada Hari jum’at tanggal:(09-juni-1995) bertepatan pada Hari Asyura (عاشوراء ) tahun 1416 hijriah telah lahir dasa daya di (bumi kandung Jakarta) berpusat di sekretariat:JL:kerendang tengah Gg:lll RT:05/RW:05 Kerendang KEC:Tambora Jakarta Barat.</p>
+                    <br>
+                   
+                   <p>Eyang sutopo merasa terpanggil untuk mendirikan ilmu dasa daya oleh Allah swt serta mendapatkan petunjuk dan hidayah untuk mendirikan dasa daya melalui di perolehnya tulisan dasa daya serta gambar tangan bersatu seperti sayap secara gaib lambang ini merupakan petunjuk atau wangsit yang diterimanya, lahirnya ilmu dasa daya petunjuk dari Allah swt tentunya mempunyai Tujuan / sasaran“ dasa daya “ yang ditempuh adalah : mengolah raga dan batin untuk mencapai keluhuran budi guna mendapatkan kesempurnaan hidup,kebahagiaan dan kesejahteraan lahir dan bathin di dunia dan di akhirat,dengan jalan mengajarkan SILAT ( seni olah napas ) sebagai olah raga atas dasar jiwa yang sehat terdapat pada tubuh yang sehat pula,yaitu dengan meninggalkan semua yang menjadi larangan-larangan tuhan,dan melaksanakan semua perintah-perintahnya ( MENS SANA IN CORPORE SANO-AMAR MA’RUF NAHI MUNKAR ).</p><br><p> Jelaslah bahwa ajaran ini adalah ajaran mulia,edi peni dan adi luhung.Oleh karena itu tidak mengherankan bagi kita bahwa segala bangsa dapat menerimanya, khususnya bangsa Indonesia. Eyang sutopo merasa terpanggil untuk bergerak ( mendirikan ) kegiatan – kegiatan “dasa-daya “. Dengan serentak gerakan ini mendapat perhatian yang besar dari para pemuda dan dukungan yang kuat dari masyarakat serta para ulama, yang akhirnya berdaya guna untuk membantu masyarakat yang membutuhkan pertolongan,Dengan meningkatkan latihan jasmani ( seni olah napas ) dan latiahn rokhani (iman dan taqwa kepada Tuhan), Memang segala permulaan itu adalah sukar terutama jalan yang menuju kepada kebaikan – kebaikan Syurga tentu banyak sekali rintangan – rintanganya, sebaliknya jalan yang menuju kepada kejahatan, kaemaksiatan, Neraka selalu terhias dengan bunga – bungaan yang serba indah dan harum ). Oleh karena itu harus ditanamkan juga kepada para pemuda kita yaitu cinta kasih dan kasih sayang. Sesama manusia harus dicintai sebagaimana mencintai pada diri sendiri .</p><br><p> Bagi Tuhan semua manusia itu sama, yang berlainan hanya taqwanya kepada Tuhan dan yang lebih taqwa itulah yang akan banyak mendapat keridhaan Tuhan. Ketaqwaan kepada Tuhan Yang Maha Esa wajib direalisasikan dengan amalyah, ibadah dan karya nyata dalam pembangunan. Membangun manusia Indonesia seutuhnya berdasarkan Pancasila dan Undang – Undang Dasar 1945. Maka wajib bagi setiap manusia Pancasilais yang membangun Indonesia ini meresapi, menghayati dan mengamalkan ketaqwaan dalam arti yang sebenarnya. Dalam perkembangan dunia ini. Tuhan senantiasa menjadikan waktu – waktu pada saat – saat yang bersejarah sejak zaman purba sampai akhir zaman. Sejarah itu merupakan guru dan suri tauladan bagi orang yang suka mengambil pelajaran dari padanya. Kita ini khususnya para generasi muda sebagai generasi penerus harus pandai mangambil hikmah dari peristiwa bersejarah untuk dijadikan suri tauladan dalam berbuat dan bertindak. Secara keseluruhan dapat diambil kesimpulan bahwa DASA DAYA adalah sebuah lembaga yang mempunyai misi untuk turut mengembangkan kehidupan pembinaan mental dan spiritual terhadap generasi muda sehingga akhlakul karimah dan ketaatan pribadi muslim tersentuh untuk menciptakan manusia yang cukup mampu ilmu dan amalnya guna pengembangan syi`ar Islam di zaman ini. Tujuan lain didirikannya DASA DAYA adalah membentuk, menjadikan kekeluargaan atau persaudaraan yang luas kokoh – kuat dan tidak membedakan kaya dan miskin Seperti yang disimbolkan lambang garis tepi warna hijau berbentuk bulat Dalam keanggotaan, dasa daya tersebar diseluruh pelosok Indonesia. Semua suku bangsa boleh ikut dengan syarat dan ketentuan berlaku. Setiap tahun sekali diadakan syukuran/ulang tahun lahirnya DASA DAYA di tempat guru utama dan setiap hari minggu latihan di monas,malam rabu di taman jakarta barat serta pengajian rutin di rumah bapak pengasuh/pembina/guru utama dasa daya agar tambah pemahaman agama islam dan juga untuk mempererat tali persaudaraan antar anggota sendiri Maka di kota jakarta sebagai kota “bumi kandung” didirikan yang bernama DASA DAYA.
+                </p><br><br><br>
+                <h1 style="text-align: left;"><hr><b>ARTI LAMBANG DASA DAYA</b><hr></h1>
+                <img src="assets/logo.png" id="logoAkhir">
+
+                <p><b>ARTI BENTUK</b><br><br>
+                    1.Bintang melambangkan tuhan yang maha esa.dimaksudkan sebagai sebuah cahaya, seperti layaknya Tuhan yang menjadi cahaya kerohanian bagi setiap manusia<br><br>
+                    
+                    2.Telapak tangan bersatu berbentuk burung garuda melambangkan kekuatan.dimaksutkan telapak tangan bersatu berbentuk sayap terbang kelangit melambangkan dinamika dan semangat untuk menjunjung tinggi asma alloh dan rosulnya<br><br>
+                    
+                    3.Pedang berjumlah dua melambangkan Pedang Zulfikar milik Imam Ali. dimaksutkan Pedang Zulfikar melambangkan keberkahan<br><br>
+                    
+                    4.kata dasa daya melambangkan sepuluh kekuatan.di maksudkan jurus dasa daya merupakan pegangan pokok Yg Sangat ADI LUHUNG Dari Peninggalan Nenek Moyang Kita BANGSA INDONESIA<br><br>
+                    
+                    5.garis tepi warna hijau berbentuk bulat melambangkan kesuburan dan kemakmuran di bumi. di maksudkan Bentuk persaudaraan yang kokoh – kuat dan tidak membedakan kaya dan miskin<br><br>
+                    
+                    ARTI WARNA
+                    1.Warna Hijau artinya melambangkan kesuburan dan kemakmuran
+                    2.Hitam artinya melambangkan keteguhan dan keabadian
+                    3.Kuning melambangkan kasih sayang dan kelembutan terhadap sesama manusia
+                    4.merah melambangkan keberanian dalam kebenaran
+                    5. putih melambang kesucian, suatu sifat dasa daya yang netral-non politik<br><br>
+                    
+                    Secara keseluruhan dapat diambil kesimpulan bahwa DASA DAYA adalah sebuah lembaga yang mempunyai misi untuk turut mengembangkan kehidupan pembinaan mental dan spiritual terhadap generasi muda sehingga akhlakul karimah dan ketaatan pribadi muslim tersentuh untuk menciptakan manusia yang cukup mampu ilmu dan amalnya guna pengembangan syi`ar Islam di zaman ini.</p>
+                
+               
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h2>Tentang Kami</h2>
+                <p>Dasa Daya adalah lembaga yang berdedikasi untuk pengembangan mental dan spiritual, mengajarkan nilai-nilai mulia dan mempererat tali persaudaraan.</p>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#tentang">Tentang</a></li>
+                    <li><a href="#program">Program Latihan</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h2>Kontak</h2>
+                <p>Email: rvlgundam9@gmail.com</p>
+                <p>Telp: +62 896 4780 7008</p>
+                <div class="socials">
+                    <a href="https://web.facebook.com/p/DASA-DAYA-100069218265589/?paipv=0&eav=AfbiMAkqPCCZzRgTtygUiwNZXGqRwc19aYj21Hb9cWKroVm_3V2cl36lFsRGC_UsrME&_rdc=1&_rdr"><img src="assets/facebook.png" alt="Facebook"></a>
+                    <a href="https://x.com/dasa_daya"><img src="assets/twitter.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com/dasa.daya/"><img src="assets/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.youtube.com/@dasadayadm5437"><img src="assets/youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Source: <br>
+               - https://aksarajawasyekhronji.wordpress.com/2020/02/14/sejarah-berdirinya-dasa-daya/<br>
+               - https://infoberitakeluargabesardasadaya.wordpress.com/2014/11/20/arti-lambang-dasa-daya/
+            </p>
+        </div>
+    </footer>
+    
+
+    <script>
+        function toggleSidebar() {
+            document.body.classList.toggle('show-sidebar');
+        }
+    </script>
+    
+</body>
+</html>
