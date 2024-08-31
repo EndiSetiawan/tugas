@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artikel</title>
+    <title>Document</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            overflow-x: hidden; /* Mencegah scrollbar horizontal saat sidebar muncul */
-        }
+       
+        html, body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
 
-        header {
-            background-color: black;
-            color: white;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000; /* Z-index header */
-        }
+header {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    position: fixed;
+    left: -10px;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
 
-        
 
         h3 {
             color: white;
@@ -37,6 +39,8 @@
             width: 40px;
             height: auto;
             margin-right: 10px;
+            margin-left: 19px;
+            
         }
 
         .toggle-btn {
@@ -94,6 +98,7 @@
         .sejarah p {
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         }
+
         #eyang {
             height: 350px;
             width: auto;
@@ -101,9 +106,7 @@
             margin-left: auto;
             margin-right: auto;
             text-align: center;
-            
         }
-        
 
         #logoAkhir {
             background-color: black;
@@ -113,203 +116,203 @@
             margin-right: auto;
         }
 
-        
         footer {
-    background-color: #1a533d;
-    color: rgb(179, 179, 179);
-    padding: 40px 0 10px 0;
-    position: relative;
-    width: 100%;
+            background-color: #1a533d;
+            color: rgb(179, 179, 179);
+            padding: 40px 0 10px 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin: 20px;
+            min-width: 200px;
+        }
+
+        .footer-section h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section p, .footer-section ul {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #00FF00; /* Change to desired hover color */
+        }
+
+        .footer-section .socials a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .footer-section .socials a img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .footer-bottom {
+            color: #888;
+            text-align: left;
+            padding: 10px 0;
+            font-size: 14px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                margin: 10px 0;
+            }
+        }
+
+        /* Tambahan style untuk form enkripsi dan dekripsi */
+.form-group {
+    margin-bottom: 20px;
 }
 
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
 }
 
-.footer-section {
-    flex: 1;
-    margin: 20px;
-    min-width: 200px;
-}
-
-.footer-section h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-.footer-section p, .footer-section ul {
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-.footer-section ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.footer-section ul li {
+.form-group input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
     margin-bottom: 10px;
 }
 
-.footer-section ul li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
+.form-group button {
+    padding: 10px 20px;
+    background-color: #00FF00; /* Warna hijau */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.footer-section ul li a:hover {
-    color: #00FF00; /* Change to desired hover color */
+.form-group button:hover {
+    background-color: #009900; /* Warna hijau lebih gelap saat hover */
 }
 
-.footer-section .socials a {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.footer-section .socials a img {
-    width: 30px;
-    height: 30px;
-}
-
-.footer-bottom {
+#bungkus {
     
-    color: #888;
-    text-align: left;
-    padding: 10px 0;
-    
-    font-size: 14px;
-    border-top: 1px solid #333;
+    position: center;
+    justify-content: center;
+    z-index: 3000;
 }
 
-.footer-bottom p {
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-section {
-        margin: 10px 0;
-    }
-}
 
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="assets/logo.png" id="logo" alt="Logo">
-        <h3>Dasa Daya</h3>
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-    </header>
-
-    <div class="sidebar">
-        <ul>
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#tentang">Tentang</a></li>
-            <li><a href="#program">Program Latihan</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-        </ul>
-    </div>
-
-    <div class="container">
-        <div class="content">
-            <!-- Isi konten utama website -->
-            <h1>Selamat Datang di Blog DASA DAYA</h1>
-            <p> Salam 3S (Sholat Silat Silaturahmi)</p>
-            <div class="sejarah">
-                <h2><hr>Sejarah Berdirinya DASA DAYA<hr></h2>
-                <p>Sejarah berdirinya dasa daya.</p>
-                <img src="https://aksarajawasyekhronji.wordpress.com/wp-content/uploads/2020/02/22366610_884676021690228_8260406742484053468_n.jpg" id="eyang">
-                <p>
-                   Dasa Daya didirikan oleh EYANG SUTOPO pada Hari jum’at tanggal:(09-juni-1995) bertepatan pada Hari Asyura (عاشوراء ) tahun 1416 hijriah telah lahir dasa daya di (bumi kandung Jakarta) berpusat di sekretariat:JL:kerendang tengah Gg:lll RT:05/RW:05 Kerendang KEC:Tambora Jakarta Barat.</p>
-                    <br>
-                   
-                   <p>Eyang sutopo merasa terpanggil untuk mendirikan ilmu dasa daya oleh Allah swt serta mendapatkan petunjuk dan hidayah untuk mendirikan dasa daya melalui di perolehnya tulisan dasa daya serta gambar tangan bersatu seperti sayap secara gaib lambang ini merupakan petunjuk atau wangsit yang diterimanya, lahirnya ilmu dasa daya petunjuk dari Allah swt tentunya mempunyai Tujuan / sasaran“ dasa daya “ yang ditempuh adalah : mengolah raga dan batin untuk mencapai keluhuran budi guna mendapatkan kesempurnaan hidup,kebahagiaan dan kesejahteraan lahir dan bathin di dunia dan di akhirat,dengan jalan mengajarkan SILAT ( seni olah napas ) sebagai olah raga atas dasar jiwa yang sehat terdapat pada tubuh yang sehat pula,yaitu dengan meninggalkan semua yang menjadi larangan-larangan tuhan,dan melaksanakan semua perintah-perintahnya ( MENS SANA IN CORPORE SANO-AMAR MA’RUF NAHI MUNKAR ).</p><br><p> Jelaslah bahwa ajaran ini adalah ajaran mulia,edi peni dan adi luhung.Oleh karena itu tidak mengherankan bagi kita bahwa segala bangsa dapat menerimanya, khususnya bangsa Indonesia. Eyang sutopo merasa terpanggil untuk bergerak ( mendirikan ) kegiatan – kegiatan “dasa-daya “. Dengan serentak gerakan ini mendapat perhatian yang besar dari para pemuda dan dukungan yang kuat dari masyarakat serta para ulama, yang akhirnya berdaya guna untuk membantu masyarakat yang membutuhkan pertolongan,Dengan meningkatkan latihan jasmani ( seni olah napas ) dan latiahn rokhani (iman dan taqwa kepada Tuhan), Memang segala permulaan itu adalah sukar terutama jalan yang menuju kepada kebaikan – kebaikan Syurga tentu banyak sekali rintangan – rintanganya, sebaliknya jalan yang menuju kepada kejahatan, kaemaksiatan, Neraka selalu terhias dengan bunga – bungaan yang serba indah dan harum ). Oleh karena itu harus ditanamkan juga kepada para pemuda kita yaitu cinta kasih dan kasih sayang. Sesama manusia harus dicintai sebagaimana mencintai pada diri sendiri .</p><br><p> Bagi Tuhan semua manusia itu sama, yang berlainan hanya taqwanya kepada Tuhan dan yang lebih taqwa itulah yang akan banyak mendapat keridhaan Tuhan. Ketaqwaan kepada Tuhan Yang Maha Esa wajib direalisasikan dengan amalyah, ibadah dan karya nyata dalam pembangunan. Membangun manusia Indonesia seutuhnya berdasarkan Pancasila dan Undang – Undang Dasar 1945. Maka wajib bagi setiap manusia Pancasilais yang membangun Indonesia ini meresapi, menghayati dan mengamalkan ketaqwaan dalam arti yang sebenarnya. Dalam perkembangan dunia ini. Tuhan senantiasa menjadikan waktu – waktu pada saat – saat yang bersejarah sejak zaman purba sampai akhir zaman. Sejarah itu merupakan guru dan suri tauladan bagi orang yang suka mengambil pelajaran dari padanya. Kita ini khususnya para generasi muda sebagai generasi penerus harus pandai mangambil hikmah dari peristiwa bersejarah untuk dijadikan suri tauladan dalam berbuat dan bertindak. Secara keseluruhan dapat diambil kesimpulan bahwa DASA DAYA adalah sebuah lembaga yang mempunyai misi untuk turut mengembangkan kehidupan pembinaan mental dan spiritual terhadap generasi muda sehingga akhlakul karimah dan ketaatan pribadi muslim tersentuh untuk menciptakan manusia yang cukup mampu ilmu dan amalnya guna pengembangan syi`ar Islam di zaman ini. Tujuan lain didirikannya DASA DAYA adalah membentuk, menjadikan kekeluargaan atau persaudaraan yang luas kokoh – kuat dan tidak membedakan kaya dan miskin Seperti yang disimbolkan lambang garis tepi warna hijau berbentuk bulat Dalam keanggotaan, dasa daya tersebar diseluruh pelosok Indonesia. Semua suku bangsa boleh ikut dengan syarat dan ketentuan berlaku. Setiap tahun sekali diadakan syukuran/ulang tahun lahirnya DASA DAYA di tempat guru utama dan setiap hari minggu latihan di monas,malam rabu di taman jakarta barat serta pengajian rutin di rumah bapak pengasuh/pembina/guru utama dasa daya agar tambah pemahaman agama islam dan juga untuk mempererat tali persaudaraan antar anggota sendiri Maka di kota jakarta sebagai kota “bumi kandung” didirikan yang bernama DASA DAYA.
-                </p><br><br><br>
-                <h1 style="text-align: left;"><hr><b>ARTI LAMBANG DASA DAYA</b><hr></h1>
-                <img src="assets/logo.png" id="logoAkhir">
-
-                <p><b>ARTI BENTUK</b><br><br>
-                    1.Bintang melambangkan tuhan yang maha esa.dimaksudkan sebagai sebuah cahaya, seperti layaknya Tuhan yang menjadi cahaya kerohanian bagi setiap manusia<br><br>
-                    
-                    2.Telapak tangan bersatu berbentuk burung garuda melambangkan kekuatan.dimaksutkan telapak tangan bersatu berbentuk sayap terbang kelangit melambangkan dinamika dan semangat untuk menjunjung tinggi asma alloh dan rosulnya<br><br>
-                    
-                    3.Pedang berjumlah dua melambangkan Pedang Zulfikar milik Imam Ali. dimaksutkan Pedang Zulfikar melambangkan keberkahan<br><br>
-                    
-                    4.kata dasa daya melambangkan sepuluh kekuatan.di maksudkan jurus dasa daya merupakan pegangan pokok Yg Sangat ADI LUHUNG Dari Peninggalan Nenek Moyang Kita BANGSA INDONESIA<br><br>
-                    
-                    5.garis tepi warna hijau berbentuk bulat melambangkan kesuburan dan kemakmuran di bumi. di maksudkan Bentuk persaudaraan yang kokoh – kuat dan tidak membedakan kaya dan miskin<br><br>
-                    
-                    ARTI WARNA
-                    1.Warna Hijau artinya melambangkan kesuburan dan kemakmuran
-                    2.Hitam artinya melambangkan keteguhan dan keabadian
-                    3.Kuning melambangkan kasih sayang dan kelembutan terhadap sesama manusia
-                    4.merah melambangkan keberanian dalam kebenaran
-                    5. putih melambang kesucian, suatu sifat dasa daya yang netral-non politik<br><br>
-                    
-                    Secara keseluruhan dapat diambil kesimpulan bahwa DASA DAYA adalah sebuah lembaga yang mempunyai misi untuk turut mengembangkan kehidupan pembinaan mental dan spiritual terhadap generasi muda sehingga akhlakul karimah dan ketaatan pribadi muslim tersentuh untuk menciptakan manusia yang cukup mampu ilmu dan amalnya guna pengembangan syi`ar Islam di zaman ini.</p>
-                
-               
-
-            </div>
+    <div id="form-container">
+    <div id="bungkus">
+        <h5>Masukkan Kata Kunci</h5>
+        <div class="form-group">
+            <label for="key">Kunci:</label>
+            <input type="password" id="key" placeholder="Masukkan kunci (16, 24, atau 32 byte)">
         </div>
-    </div>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section about">
-                <h2>Tentang Kami</h2>
-                <p>Dasa Daya adalah lembaga yang berdedikasi untuk pengembangan mental dan spiritual, mengajarkan nilai-nilai mulia dan mempererat tali persaudaraan.</p>
-            </div>
-            <div class="footer-section links">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="#beranda">Beranda</a></li>
-                    <li><a href="#tentang">Tentang</a></li>
-                    <li><a href="#program">Program Latihan</a></li>
-                    <li><a href="#galeri">Galeri</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
-                </ul>
-            </div>
-            <div class="footer-section contact">
-                <h2>Kontak</h2>
-                <p>Email: rvlgundam9@gmail.com</p>
-                <p>Telp: +62 896 4780 7008</p>
-                <div class="socials">
-                    <a href="https://web.facebook.com/p/DASA-DAYA-100069218265589/?paipv=0&eav=AfbiMAkqPCCZzRgTtygUiwNZXGqRwc19aYj21Hb9cWKroVm_3V2cl36lFsRGC_UsrME&_rdc=1&_rdr"><img src="assets/facebook.png" alt="Facebook"></a>
-                    <a href="https://x.com/dasa_daya"><img src="assets/twitter.png" alt="Twitter"></a>
-                    <a href="https://www.instagram.com/dasa.daya/"><img src="assets/instagram.png" alt="Instagram"></a>
-                    <a href="https://www.youtube.com/@dasadayadm5437"><img src="assets/youtube.png" alt="YouTube"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>Source: <br>
-               - https://aksarajawasyekhronji.wordpress.com/2020/02/14/sejarah-berdirinya-dasa-daya/<br>
-               - https://infoberitakeluargabesardasadaya.wordpress.com/2014/11/20/arti-lambang-dasa-daya/
-            </p>
-        </div>
-    </footer>
     
-
+        
+    
+        <div class="form-group">
+           
+            <button onclick="decryptMessage()">Dekripsi</button>
+        </div>
+    </div>
+    </div>
+    
+    <div class="container" id="output">
+        <!-- Hasil dekripsi atau enkripsi akan muncul di sini -->
+    </div>
+    <div class="font-size-controller">
+        <label for="font-size-range">Atur Ukuran Font Anda:</label>
+        <input type="range" id="font-size-range" min="10" max="40" value="16" 
+               oninput="document.querySelectorAll('body p').forEach(p => p.style.fontSize = this.value + 'px')">
+    </div>
+    
     <script>
-        function toggleSidebar() {
-            document.body.classList.toggle('show-sidebar');
+        
+        function decryptMessage() {
+            const key = document.getElementById('key').value;
+            const encryptedMessage = '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';
+            
+            if (!key || !encryptedMessage) {
+                alert("Kunci dan pesan tidak boleh kosong!");
+                return;
+            }
+
+            try {
+                const bytes = CryptoJS.AES.decrypt(encryptedMessage, key);
+                const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+                const outputDiv = document.getElementById('output');
+                outputDiv.innerHTML = decrypted; // Menambahkan hasil dekripsi sebagai HTML
+                
+            } catch (error) {
+                alert("Terjadi kesalahan: " + error.message);
+            }
+
+            const login = document.getElementById('bungkus');
+            login.style.display = 'none';
         }
+
+        // Include CryptoJS library
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';
+        document.head.appendChild(script);
+
+        
     </script>
-    
+
+<script>
+    function toggleSidebar() {
+        document.body.classList.toggle('show-sidebar');
+    }
+</script>
 </body>
 </html>
